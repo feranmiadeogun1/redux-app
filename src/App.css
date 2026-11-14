@@ -1,38 +1,172 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  min-height: 100vh;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start;
+  padding: 60px 20px;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 650px;
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  color: #243b55;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.add-task {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.add-task input,
+.task input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.add-task input:focus,
+.task input:focus {
+  border-color: #243b55;
+}
+
+.add-task button {
+  background: #243b55;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-task button:hover {
+  background: #141e30;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filter-buttons button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 7px;
+  background: #eee;
+  cursor: pointer;
+}
+
+.filter-buttons button.active {
+  background: #243b55;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #f5f7fa;
+  border-radius: 10px;
+  border-left: 4px solid #243b55;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.task span {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.task.completed {
+  border-left-color: #16a34a;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 7px;
+}
+
+.task-buttons button {
+  border: none;
+  padding: 8px 11px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.done-btn {
+  background: #16a34a;
+}
+
+.edit-btn {
+  background: #2563eb;
+}
+
+.save-btn {
+  background: #e59b15;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+  padding: 20px;
+}
+
+@media (max-width: 500px) {
+  .todo-container {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .add-task {
+    flex-direction: column;
+  }
+
+  .task {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-buttons {
+    width: 100%;
   }
 }
